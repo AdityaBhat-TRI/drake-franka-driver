@@ -7,6 +7,12 @@ To build, run `bazel build //...`.  This will output two versions of
 the driver: `bazel-bin/franka-driver/panda_driver_v4` and
 `bazel-bin/franka-driver/panda_driver_v5`.
 
+
+Before you begin, install the prerequisite:
+```
+sudo apt install libgflags-dev
+```
+
 ## Links
 
 * [Website](https://www.franka.de/technology)
