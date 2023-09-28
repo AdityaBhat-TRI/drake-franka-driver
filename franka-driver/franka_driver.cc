@@ -392,7 +392,7 @@ class PandaDriver {
       return v;
     }
 
-    if (command_->num_joint_velocity != std::size(state.q)) {
+    if (command_->num_joint_velocity != std::ssize(state.q)) {
       throw std::runtime_error(
           "Received command with unexpected num_joint_velocity");
     }
@@ -445,7 +445,7 @@ class PandaDriver {
       return q;
     }
 
-    if (command_->num_joint_position != std::size(state.q)) {
+    if (command_->num_joint_position != std::ssize(state.q)) {
       throw std::runtime_error(
           "Received command with unexpected num_joint_position");
     }
@@ -497,7 +497,7 @@ class PandaDriver {
           drake::lcmt_panda_status::CONTROL_MODE_POSITION);
       DRAKE_THROW_UNLESS(command_->num_joint_velocity == 0);
       DRAKE_THROW_UNLESS(command_->num_joint_torque == 0);
-      if (command_->num_joint_position != std::size(state.q)) {
+      if (command_->num_joint_position != std::ssize(state.q)) {
         throw std::runtime_error(
             "Received command with unexpected num_joint_position");
       }
