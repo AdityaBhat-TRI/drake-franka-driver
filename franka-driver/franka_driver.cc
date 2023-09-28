@@ -17,10 +17,9 @@
 #include "drake/common/text_logging.h"
 #include "drake/lcmt_panda_command.hpp"
 #include "drake/lcmt_panda_status.hpp"
-#include "drake/multibody/plant/multibody_plant.h"
 #include "drake/multibody/parsing/parser.h"
 #include "drake/multibody/parsing/process_model_directives.h"
-// #include "common/anzu_model_directives.h"
+#include "drake/multibody/plant/multibody_plant.h"
 
 DEFINE_string(robot_ip_address, "", "Address of the shop floor interface");
 DEFINE_string(lcm_url, "", "LCM URL for Panda driver");
@@ -104,8 +103,8 @@ DEFINE_bool(
     "--use_mbp=true means that gravity compenstation will use a Drake-"
     "supplied model. Otherwise, Franka's internal Panda model is used.");
 
-namespace anzu {
-namespace robot_bridge {
+namespace robotlocomotion {
+namespace franka_driver {
 namespace {
 
 namespace sp = std::placeholders;
@@ -771,8 +770,8 @@ class PandaDriver {
   std::unique_ptr<Context<double>> context_;
 };
 
-// N.B. Using a resource path, vs. FindAnzuResourceOrThrow, allows us to locate
-// any Bazel resource, be it Drake, Anzu, or another repository.
+// N.B. Using a resource path allows us to locate
+// any Bazel resource, be it Drake or another repository.
 std::string GetPathOrThrow(const drake::RlocationOrError& result) {
   if (!result.error.empty()) {
     throw std::runtime_error(result.error);
@@ -828,10 +827,10 @@ int DoMain() {
   return 0;
 }
 }  // namespace
-}  // namespace robot_bridge
-}  // namespace anzu
+} // namespace franka_driver
+} // namespace robotlocomotion
 
 int main(int argc, char** argv) {
   gflags::ParseCommandLineFlags(&argc, &argv, true);
-  return anzu::robot_bridge::DoMain();
+  return robotlocomotion::franka_driver::DoMain();
 }

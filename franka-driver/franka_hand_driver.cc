@@ -38,8 +38,8 @@ DEFINE_bool(
 DEFINE_bool(
     move_only, false, "Move to desired setpoint without calling grasp.");
 
-namespace anzu {
-namespace robot_bridge {
+namespace robotlocomotion {
+namespace franka_driver {
 namespace {
 
 constexpr char kModePosition[] = "position";
@@ -286,10 +286,10 @@ int DoMain() {
   return 0;
 }
 }  // namespace
-}  // namespace robot_bridge
-}  // namespace anzu
+} // namespace franka_driver
+} // namespace robotlocomotion
 
 int main(int argc, char** argv) {
   gflags::ParseCommandLineFlags(&argc, &argv, true);
-  return anzu::robot_bridge::DoMain();
+  return robotlocomotion::franka_driver::DoMain();
 }
