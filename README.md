@@ -43,8 +43,7 @@ To add a gripper, update the `models/add_franka_control.yaml` with the respectiv
 `v4.x`, and `v5.x`) and `libfranka` driver software on the host PC
 (`0.8.0` for `v4.x` FE3, and `0.10.0` for `v5.x` FR3).
     * You should see suffixes like `_v4` and `_v5` for relevant
-    libraries and binaries. Be sure to coordinate those, e.g. in each station's
-    PMD files.
+    libraries and binaries.
     * If you use the wrong driver, you should get an error like:
 
             terminate called after throwing an instance of 'franka::IncompatibleVersionException'
