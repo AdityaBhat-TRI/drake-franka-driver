@@ -2,16 +2,25 @@
 This repository contains the application code used to communicate with the Franka Emika arm from Drake. 
 
 ## Building the driver
-
-To build, run `bazel build //...`.  This will output two versions of
-the driver: `bazel-bin/franka-driver/panda_driver_v4` and
-`bazel-bin/franka-driver/panda_driver_v5`.
-
-
 Before you begin, install the prerequisite:
 ```
 sudo apt install libgflags-dev
 ```
+
+To build, run `bazel build //...`.  This will output two versions of
+the driver: `bazel-bin/franka-driver/franka_driver_v4` and
+`bazel-bin/franka-driver/franka_driver_v5`.
+
+Use `franka_driver_v5` for the FR-3 robots.
+
+# Running the driver
+To run the driver in position mode, use the following command:
+    `bazel-bin/franka-driver/franka_driver_v5 --expire_sec=0.05 --robot_ip_address=<ip-addr> --control_mode=position`
+
+To run the driver in torque mode, use the following command:
+    `bazel-bin/franka-driver/franka_driver_v5 --use_mbp --expire_sec=0.05 --robot_ip_address=<ip-addr> --control_mode=torque`
+
+To add a gripper, update the `models/add_franka_control.yaml` with the respective gripper.
 
 ## Links
 
