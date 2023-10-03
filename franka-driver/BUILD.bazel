@@ -18,6 +18,10 @@ cc_binary(
         "@lcm",
         "@libfranka_v5",
     ],
+    data = [
+        "//models:franka_control_models",
+        "@drake//manipulation/models/franka_description:models",
+    ],
 )
 
 cc_binary(
@@ -34,6 +38,10 @@ cc_binary(
         "@lcm",
         "@libfranka_v4",
     ],
+    data = [
+        "//models:franka_control_models",
+        "@drake//manipulation/models/franka_description:models",
+    ],
 )
 
 cc_binary(
@@ -49,6 +57,10 @@ cc_binary(
         "@lcm",
         "@libfranka_v5",
     ],
+    data = [
+        "//models:franka_control_models",
+        "@drake//manipulation/models/franka_description:models",
+    ],
 )
 
 cc_binary(
@@ -63,6 +75,10 @@ cc_binary(
         "@gflags",
         "@lcm",
         "@libfranka_v4",
+    ],
+    data = [
+        "//models:franka_control_models",
+        "@drake//manipulation/models/franka_description:models",
     ],
 )
 add_lint_tests()

@@ -58,10 +58,9 @@ DEFINE_bool(
     use_mbp, false,
     "Use Drake MbP for dynamics computation, rather than Franka's inbuilt "
     "model.");
-DEFINE_string(
-    mbp_model_runpath,
-    "anzu/models/food_prep/add_panda_for_control.yaml",
-    "Model file to use.");
+DEFINE_string(mbp_model_runpath,
+              "drake_franka_driver/models/add_franka_control.yaml",
+              "Model file to use.");
 
 // Options for --control_mode=position --use_torque_for_position=true
 DEFINE_bool(
