@@ -231,7 +231,6 @@ class PandaDriver {
         "Connected to Panda arm version {}", robot_.serverVersion());
 
     const auto state = robot_.readOnce();
-    drake::log()->info("Initial robot state:\n{}", PrintRobotState(state));
 
     DRAKE_DEMAND(state.q.size() == kNdof);
     status_msg_.num_joints = kNdof;
